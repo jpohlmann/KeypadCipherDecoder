@@ -6,7 +6,7 @@ import (
 )
 
 func TestDecoder(t *testing.T) {
-	var code = "DL2UR2UR3DL1 DC2CC3CR3CL2DL1 DL1CC3 DC2UC2CL3CL3"
+	var code = "DR2UL2UL3DR1 DC2SC3SL3SR2DR1 DR1SC3 DC2UC2SR3SR3"
 	var answer = "THIS WORKS SO WELL"
 	decoderKeypad := model.GetKeyPad(0)
 	testAnswer := model.DecodeMessage(decoderKeypad, code)
@@ -15,7 +15,7 @@ func TestDecoder(t *testing.T) {
 	}
 }
 func TestGetBestDecoding(t *testing.T) {
-	var code = "DL2UR2UR3DL1 DC2CC3CR3CL2DL1 DL1CC3 DC2UC2CL3CL3"
+	var code = "DR2UL2UL3DR1 DC2SC3SL3SR2DR1 DR1SC3 DC2UC2SR3SR3\n"
 	var answer = "THIS WORKS SO WELL"
 	testAnswer := model.GetBestDecoding(code)
 	if (testAnswer != answer) {

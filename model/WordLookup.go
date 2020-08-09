@@ -26,7 +26,7 @@ type Word struct {
 
 // Connect to our sqlite database
 func connect() DBManager {
-	localDbRef, err := gorm.Open("sqlite3", "../dictionary.db")
+	localDbRef, err := gorm.Open("sqlite3", "./dictionary.db")
 	localDbRef.AutoMigrate(&Word{})
 	if err != nil {
 		panic(err.Error())

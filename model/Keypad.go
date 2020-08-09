@@ -16,15 +16,15 @@ type LetterCode struct {
 func GetKeyPad(offset int) Keypad {
 	m := make(map[string]Square)
 	keypad := Keypad{m}
-	keypad.Grids["UL"] = HydrateSquare((1 + offset) % 9)
+	keypad.Grids["UR"] = HydrateSquare((1 + offset) % 9)
 	keypad.Grids["UC"] = HydrateSquare((2 + offset) % 9)
-	keypad.Grids["UR"] = HydrateSquare((3 + offset) % 9)
-	keypad.Grids["CL"] = HydrateSquare((4 + offset) % 9)
-	keypad.Grids["CC"] = HydrateSquare((5 + offset) % 9)
-	keypad.Grids["CR"] = HydrateSquare((6 + offset) % 9)
-	keypad.Grids["DL"] = HydrateSquare((7 + offset) % 9)
+	keypad.Grids["UL"] = HydrateSquare((3 + offset) % 9)
+	keypad.Grids["SR"] = HydrateSquare((4 + offset) % 9)
+	keypad.Grids["SC"] = HydrateSquare((5 + offset) % 9)
+	keypad.Grids["SL"] = HydrateSquare((6 + offset) % 9)
+	keypad.Grids["DR"] = HydrateSquare((7 + offset) % 9)
 	keypad.Grids["DC"] = HydrateSquare((8 + offset) % 9)
-	keypad.Grids["DR"] = HydrateSquare((9 + offset) % 9)
+	keypad.Grids["DL"] = HydrateSquare((9 + offset) % 9)
 	return keypad
 }
 func DecodeCharacter(code LetterCode, keypad Keypad) string {
