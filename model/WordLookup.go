@@ -26,7 +26,7 @@ type Word struct {
 
 // Connect to our sqlite database
 func connect() DBManager {
-	localDbRef, err := gorm.Open("sqlite3", "./dictionary.db")
+	localDbRef, err := gorm.Open("sqlite3", "../dictionary.db")
 	localDbRef.AutoMigrate(&Word{})
 	if err != nil {
 		panic(err.Error())
@@ -39,7 +39,7 @@ func connect() DBManager {
 // Get the metadata for the words
 func LookupWord(wordToLookup string) bool {
 	foundWords := make([]Word, 0)
-	dbInstance.db.Where("SELECT * FROM words WHERE word = ?", wordToLookup).First(&foundWords)
+	dbInstance.db.Where("word = ?", strings.ToLower(wordToLookup)).Find(&foundWords)
 	return len(foundWords) > 0
 }
 

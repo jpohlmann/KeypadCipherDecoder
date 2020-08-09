@@ -66,7 +66,7 @@ func GetBestDecoding(inputString string) string {
 		testDecoderPad := GetKeyPad(offset)
 		decodedMessage := DecodeMessage(testDecoderPad, inputString)
 		testScore:= ScoreString(decodedMessage)
-		log.Print(decodedMessage + " got a score of " + string(testScore))
+		log.Print(decodedMessage + " got a score of " + strconv.Itoa(testScore))
 		if (testScore > score) {
 			bestDecoding = decodedMessage
 			score = testScore
